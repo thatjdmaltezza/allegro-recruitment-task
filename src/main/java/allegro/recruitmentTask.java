@@ -54,7 +54,7 @@ public class recruitmentTask
         builder.perform();
 
         //Po kliknięciu na filtr, lista produktów jest dynamicznie przeładowywana. Miałem problem ze złapaniem elementu
-        //overlaya loadera (pojawiał się i znikał z DOM), więc czekam aż w URL pojawi się parametr z filtrem.
+        //overlaya loadera (pojawiał się i znikał z DOM, a losowe nazwy klas nie pomagały), więc czekam aż w URL pojawi się parametr z filtrem.
         //Po pojawieniu się parametru, przeładowuję stronę, aby mieć domyślnego 'waita' z Selenium przy ładowaniu się strony.
         //Być może da się to zrobić lepiej, ale to rozwiązanie działa dobrze.
         wait.until(ExpectedConditions.urlContains("kolor=czarny"));
@@ -94,7 +94,7 @@ public class recruitmentTask
         Float highestPrice = pricesClean.get(pricesClean.size()-1);
         System.out.println("Highest price: " + highestPrice);
 
-        //Dodanie 23% do najwyżej ceny. W intrukcjach nie było wypisania, ale uznałem, że się przyda do sprawdzenia wyniku.
+        //Dodanie 23% do najwyższej ceny. W intrukcjach w mailu nie było wypisania tej pozycji, ale uznałem, że się przyda do sprawdzenia wyniku.
         Float highestPriceVAT = ((highestPrice * 23)/100) + highestPrice;
         System.out.println("Highest price + VAT (23%): " + highestPriceVAT);
     }
